@@ -1,0 +1,26 @@
+# ============================================
+# Step2Campus - SERVER (Backend) Dependencies
+# ============================================
+# Equivalent of Python requirements.txt
+# Install all: npm install
+# Install specific: npm install <package-name>
+# ============================================
+
+# --- Runtime Dependencies ---
+bcrypt==6.0.0                  # Password hashing (native)
+bcryptjs==3.0.3                # Password hashing (JS fallback)
+cloudinary==2.8.0              # Image/file cloud storage
+cors==2.8.5                    # Cross-Origin Resource Sharing
+dotenv==17.2.3                 # Environment variable loader
+express==5.2.1                 # Web framework
+jsonwebtoken==9.0.3            # JWT authentication
+mongodb==7.0.0                 # MongoDB driver
+mongoose==9.1.2                # MongoDB ODM (Object Document Mapper)
+morgan==1.10.1                 # HTTP request logger
+multer==2.0.2                  # File upload middleware
+zod==4.3.5                     # Schema validation
+
+# --- Dev Dependencies ---
+@prisma/client==7.2.0          # Prisma ORM client (dev)
+nodemon==3.1.11                # Auto-restart on file change
+prisma==7.2.0                  # Prisma CLI (dev)

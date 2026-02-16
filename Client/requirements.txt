@@ -1,0 +1,30 @@
+# ============================================
+# Step2Campus - CLIENT (Frontend) Dependencies
+# ============================================
+# Equivalent of Python requirements.txt
+# Install all: npm install
+# Install specific: npm install <package-name>
+# ============================================
+
+# --- Runtime Dependencies ---
+axios==1.13.2                  # HTTP client for API calls
+clsx==2.1.1                    # Conditional className utility
+framer-motion==12.26.1         # Animation library for React
+lucide-react==0.562.0          # Icon library
+react==19.2.0                  # UI framework
+react-dom==19.2.0              # React DOM renderer
+react-router-dom==7.12.0       # Client-side routing
+tailwind-merge==3.4.0          # Tailwind class merge utility
+tailwindcss==latest            # Tailwind CSS framework (added manually)
+@tailwindcss/vite==latest      # Tailwind Vite plugin (added manually)
+
+# --- Dev Dependencies ---
+@eslint/js==9.39.1             # ESLint core
+@types/react==19.2.5           # React type definitions
+@types/react-dom==19.2.3       # React DOM type definitions
+@vitejs/plugin-react==5.1.1    # Vite React plugin
+eslint==9.39.1                 # Code linter
+eslint-plugin-react-hooks==7.0.1       # React hooks linting
+eslint-plugin-react-refresh==0.4.24    # React refresh linting
+globals==16.5.0                # Global variable definitions
+rolldown-vite==7.2.5           # Vite build tool (aliased as vite)

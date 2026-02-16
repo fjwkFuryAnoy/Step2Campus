@@ -1,0 +1,154 @@
+============================================
+ Step2Campus - Local Environment Setup Guide
+============================================
+ Created: 2026-02-11
+ Author: Auto-generated
+============================================
+
+
+PREREQUISITES
+-------------
+1. Node.js (v18 or later) - https://nodejs.org
+2. npm (comes with Node.js)
+3. MongoDB (local or Atlas cloud) - https://www.mongodb.com
+4. Git (to clone the repo)
+
+
+PROJECT STRUCTURE
+-----------------
+Step2Campus/
+├── Client/              # React Frontend (Vite)
+│   ├── package.json     # Frontend dependencies
+│   ├── requirements.txt # Dependency list (Python-style)
+│   └── src/             # Source code
+├── Server/              # Express Backend
+│   ├── package.json     # Backend dependencies
+│   ├── requirements.txt # Dependency list (Python-style)
+│   ├── .env             # Environment variables (DO NOT share!)
+│   └── src/             # Source code
+├── start.bat            # Start both servers
+└── stop.bat             # Stop both servers
+
+
+============================================
+ QUICK START (Using Batch Scripts)
+============================================
+
+  START:   Double-click  start.bat
+  STOP:    Double-click  stop.bat
+
+  That's it! The scripts handle installation + startup.
+
+
+============================================
+ MANUAL COMMANDS
+============================================
+
+--- INSTALL DEPENDENCIES ---
+
+  # Client (Frontend)
+  cd Client
+  npm install
+
+  # Server (Backend)
+  cd Server
+  npm install
+
+
+--- CONFIGURE ENVIRONMENT ---
+
+  # Edit Server/.env with your values:
+  #   DATABASE_URL     = Your MongoDB connection string
+  #   JWT_SECRET       = Any random secret string
+  #   CLOUDINARY_*     = Your Cloudinary credentials
+  #   ADMIN_EMAIL      = Admin login email
+  #   ADMIN_PASSWORD   = Admin login password
+
+
+--- START SERVERS ---
+
+  # Terminal 1 - Start Backend (port 5000)
+  cd Server
+  npm run dev
+
+  # Terminal 2 - Start Frontend (port 5173)
+  cd Client
+  npm run dev
+
+
+--- START IN PRODUCTION MODE ---
+
+  # Backend
+  cd Server
+  npm start
+
+  # Frontend (build first, then serve)
+  cd Client
+  npm run build
+  npm run preview
+
+
+--- STOP SERVERS ---
+
+  # Option 1: Press Ctrl+C in each terminal window
+
+  # Option 2: Kill all Node processes
+  taskkill /F /IM node.exe
+
+  # Option 3: Run stop.bat
+
+
+--- CHECK IF SERVERS ARE RUNNING ---
+
+  # Check which ports are in use
+  netstat -ano | findstr :5000
+  netstat -ano | findstr :5173
+
+
+============================================
+ URLS
+============================================
+
+  Frontend:    http://localhost:5173
+  Backend API: http://localhost:5000/api
+  Health Check: http://localhost:5000/api/health
+
+
+============================================
+ ENVIRONMENT VARIABLES REFERENCE
+============================================
+
+  Variable               | Required | Description
+  -----------------------|----------|----------------------------------
+  PORT                   | No       | Server port (default: 5000)
+  NODE_ENV               | No       | development / production
+  FRONTEND_URL           | No       | CORS origin (default: localhost:5173)
+  DATABASE_URL           | YES      | MongoDB connection string
+  JWT_SECRET             | YES      | Secret for signing JWT tokens
+  CLOUDINARY_CLOUD_NAME  | YES      | Cloudinary cloud name
+  CLOUDINARY_API_KEY     | YES      | Cloudinary API key
+  CLOUDINARY_API_SECRET  | YES      | Cloudinary API secret
+  ADMIN_EMAIL            | YES      | Admin account email
+  ADMIN_PASSWORD         | YES      | Admin account password
+
+
+============================================
+ TROUBLESHOOTING
+============================================
+
+  Problem: "Cannot find module" errors
+  Fix:     Run "npm install" in the affected directory
+
+  Problem: Server crashes on startup
+  Fix:     Check .env file exists and DATABASE_URL is valid
+
+  Problem: Frontend can't connect to backend  
+  Fix:     Ensure Server is running on port 5000 first
+
+  Problem: MongoDB connection error
+  Fix:     Start MongoDB service or check Atlas connection string
+           For local: mongod --dbpath <your-data-path>
+
+  Problem: Port already in use
+  Fix:     netstat -ano | findstr :<port>
+           taskkill /PID <pid> /F
