@@ -7,6 +7,7 @@
 # ============================================
 
 # --- Runtime Dependencies ---
+@tailwindcss/vite==4.1.18      # Tailwind CSS Vite plugin
 axios==1.13.2                  # HTTP client for API calls
 clsx==2.1.1                    # Conditional className utility
 framer-motion==12.26.1         # Animation library for React
@@ -15,8 +16,7 @@ react==19.2.0                  # UI framework
 react-dom==19.2.0              # React DOM renderer
 react-router-dom==7.12.0       # Client-side routing
 tailwind-merge==3.4.0          # Tailwind class merge utility
-tailwindcss==latest            # Tailwind CSS framework (added manually)
-@tailwindcss/vite==latest      # Tailwind Vite plugin (added manually)
+tailwindcss==4.1.18            # Tailwind CSS framework
 
 # --- Dev Dependencies ---
 @eslint/js==9.39.1             # ESLint core
